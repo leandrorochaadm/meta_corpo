@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blue,
         scaffoldBackgroundColor: Colors.blue,
         buttonColor: Colors.blue,
-        textTheme: TextTheme(button: TextStyle(color: Colors.white)),
+        textTheme: const TextTheme(button: TextStyle(color: Colors.white)),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
