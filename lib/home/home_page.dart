@@ -19,6 +19,8 @@ class HomePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Observer(builder: (_) {
             return Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
               margin: const EdgeInsets.all(16),
               elevation: 8,
               child: Padding(
@@ -30,6 +32,7 @@ class HomePage extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
                         decoration: InputDecoration(
+                            isDense: true,
                             errorText: controller.abdomemError,
                             border: const OutlineInputBorder(),
                             labelText: "Abdômem (cm)"),
@@ -42,6 +45,7 @@ class HomePage extends StatelessWidget {
                       child: TextField(
                         onChanged: controller.setPeito,
                         decoration: InputDecoration(
+                            isDense: true,
                             errorText: controller.peitoError,
                             border: const OutlineInputBorder(),
                             labelText: "Peito (cm)"),

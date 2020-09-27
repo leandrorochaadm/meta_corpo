@@ -1,16 +1,9 @@
 # meta_corpo
 
-A new Flutter project.
+Esse app tem o objetivo de calcular a proporsão ideal de abdômem e peitoral, o ideal é ser de 0,70.
 
-## Getting Started
+Tambem fiz calculo pra apresentar  qual medida ideal que devo alçancar diariamente até dia 31/12/20, pra atingir 80% da minha meta, está descria como *meta temporal*.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Detalhes técnicos
+- Foi desvolvido em Flutter com Mobx (Flutter 1.23.0-4.0.pre)
+- Compilado pra Linux e Android
