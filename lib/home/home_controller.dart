@@ -1,12 +1,13 @@
 import 'package:mobx/mobx.dart';
+import 'dart:math';
 part 'home_controller.g.dart';
 
 class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
-  final double meta_peito = 102.9;
-  final double meta_abdomem = 89.4;
-  final double meta_proporsao = 0.8;
+  final double meta_peito = 113; //102.9;
+  final double meta_abdomem = 80; //89.4;
+  final double meta_proporsao = .7; //0.8;
 
   @observable
   double _abdomem = 0;
@@ -91,5 +92,30 @@ abstract class _HomeControllerBase with Store {
   @computed
   String get meta_abdomem_calc_str {
     return "Meta: ${(meta_abdomem / _abdomem * 100).toStringAsFixed(1)}%";
+  }
+
+  @computed
+  int get meta_dias {
+    return DateTime.utc(2020, 12, 31).difference(DateTime.now()).inDays;
+  }
+
+  @computed
+  double get meta_peito_temporal {
+    return (meta_peito * .91062) / pow(1.0011803, meta_dias);
+  }
+
+  @computed
+  double get meta_peito_temporal_atingido {
+    return _peito / meta_peito_temporal * 100;
+  }
+
+  @computed
+  double get meta_abdomem_temporal {
+    return (meta_abdomem / 0.894854586) / pow(0.99955726, meta_dias);
+  }
+
+  @computed
+  double get meta_abdomem_temporal_atingido {
+    return meta_abdomem_temporal / _abdomem * 100;
   }
 }

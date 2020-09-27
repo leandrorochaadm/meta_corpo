@@ -59,6 +59,41 @@ mixin _$HomeController on _HomeControllerBase, Store {
               () => super.meta_proporsao_calc_string,
               name: '_HomeControllerBase.meta_proporsao_calc_string'))
           .value;
+  Computed<String> _$meta_peito_calc_strComputed;
+
+  @override
+  String get meta_peito_calc_str => (_$meta_peito_calc_strComputed ??=
+          Computed<String>(() => super.meta_peito_calc_str,
+              name: '_HomeControllerBase.meta_peito_calc_str'))
+      .value;
+  Computed<String> _$meta_abdomem_calc_strComputed;
+
+  @override
+  String get meta_abdomem_calc_str => (_$meta_abdomem_calc_strComputed ??=
+          Computed<String>(() => super.meta_abdomem_calc_str,
+              name: '_HomeControllerBase.meta_abdomem_calc_str'))
+      .value;
+  Computed<int> _$meta_diasComputed;
+
+  @override
+  int get meta_dias =>
+      (_$meta_diasComputed ??= Computed<int>(() => super.meta_dias,
+              name: '_HomeControllerBase.meta_dias'))
+          .value;
+  Computed<double> _$meta_peito_temporalComputed;
+
+  @override
+  double get meta_peito_temporal => (_$meta_peito_temporalComputed ??=
+          Computed<double>(() => super.meta_peito_temporal,
+              name: '_HomeControllerBase.meta_peito_temporal'))
+      .value;
+  Computed<double> _$meta_abdomem_temporalComputed;
+
+  @override
+  double get meta_abdomem_temporal => (_$meta_abdomem_temporalComputed ??=
+          Computed<double>(() => super.meta_abdomem_temporal,
+              name: '_HomeControllerBase.meta_abdomem_temporal'))
+      .value;
 
   final _$_abdomemAtom = Atom(name: '_HomeControllerBase._abdomem');
 
@@ -120,7 +155,12 @@ mixin _$HomeController on _HomeControllerBase, Store {
     return '''
 isValid: ${isValid},
 porporcao_abdomem_peito_string: ${porporcao_abdomem_peito_string},
-meta_proporsao_calc_string: ${meta_proporsao_calc_string}
+meta_proporsao_calc_string: ${meta_proporsao_calc_string},
+meta_peito_calc_str: ${meta_peito_calc_str},
+meta_abdomem_calc_str: ${meta_abdomem_calc_str},
+meta_dias: ${meta_dias},
+meta_peito_temporal: ${meta_peito_temporal},
+meta_abdomem_temporal: ${meta_abdomem_temporal}
     ''';
   }
 }

@@ -120,7 +120,34 @@ class HomePage extends StatelessWidget {
                           ],
                         ),
                       ),
-                    )
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 16),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              width: 2, color: Theme.of(context).primaryColor),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20))),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Column(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          // crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            const Text(
+                              "Meta temporal:",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text("Dias que faltam: ${controller.meta_dias}"),
+                            Text(
+                                "Peito: ${controller.meta_peito_temporal.toStringAsFixed(1)} -> ${controller.meta_peito_temporal_atingido.toStringAsFixed(1)}%"),
+                            Text(
+                                "Abdomem: ${controller.meta_abdomem_temporal.toStringAsFixed(1)} -> ${controller.meta_abdomem_temporal_atingido.toStringAsFixed(1)}%"),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
