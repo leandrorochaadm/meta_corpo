@@ -7,6 +7,7 @@ class HomeController = _HomeControllerBase with _$HomeController;
 abstract class _HomeControllerBase with Store {
   final double meta_peito = 113; //102.9;
   final double meta_abdomem = 80; //89.4;
+  final double meta_bicipes = 42.2; //89.4;
   final double meta_proporsao = .7; //0.8;
 
   @observable
@@ -64,6 +65,34 @@ abstract class _HomeControllerBase with Store {
     return null;
   }
 
+  @observable
+  double _bicipes = 0;
+
+  @action
+  void setBicipes(String value) {
+    try {
+      _bicipes = double.parse(value);
+    } catch (e) {
+      _bicipes = 0;
+    }
+  }
+
+  @computed
+  bool get _bicipesIsValid {
+    if (_bicipes <= 0 || _bicipes > 60) {
+      return false;
+    }
+
+    return true;
+  }
+
+  String get bicipesError {
+    if (!_bicipesIsValid) {
+      return "Valor inválido";
+    }
+    return null;
+  }
+
   @computed
   bool get isValid {
     return _peitoIsValid && _abdomemIsValid;
@@ -95,6 +124,11 @@ abstract class _HomeControllerBase with Store {
   }
 
   @computed
+  double get meta_bicipes_atigida {
+    return _bicipes / meta_bicipes * 100;
+  }
+
+  @computed
   int get meta_dias {
     return DateTime.utc(2020, 12, 31).difference(DateTime.now()).inDays;
   }
@@ -117,5 +151,15 @@ abstract class _HomeControllerBase with Store {
   @computed
   double get meta_abdomem_temporal_atingido {
     return meta_abdomem_temporal / _abdomem * 100;
+  }
+
+  @computed
+  double get meta_bicipes_temporal {
+    return (meta_bicipes * 0.944549763) / pow(1.003117018, meta_dias);
+  }
+
+  @computed
+  double get meta_bicipes_temporal_atingido {
+    return _bicipes / meta_bicipes_temporal * 100;
   }
 }

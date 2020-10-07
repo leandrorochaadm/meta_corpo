@@ -52,6 +52,18 @@ class HomePage extends StatelessWidget {
                         keyboardType: TextInputType.number,
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            isDense: true,
+                            errorText: controller.bicipesError,
+                            border: const OutlineInputBorder(),
+                            labelText: "Bicipes (cm)"),
+                        keyboardType: TextInputType.number,
+                        onChanged: controller.setBicipes,
+                      ),
+                    ),
                     const Divider(),
                     Container(
                       margin: const EdgeInsets.only(bottom: 16),
@@ -127,6 +139,25 @@ class HomePage extends StatelessWidget {
                     ),
                     Container(
                       margin: const EdgeInsets.only(bottom: 16),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              width: 2, color: Theme.of(context).primaryColor),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20))),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            const Text("Bicipes:"),
+                            Text(
+                                '${controller.meta_bicipes_atigida.toStringAsFixed(1)} %'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 16),
                       width: double.infinity,
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -148,6 +179,8 @@ class HomePage extends StatelessWidget {
                                 "Peito: ${controller.meta_peito_temporal.toStringAsFixed(1)} -> ${controller.meta_peito_temporal_atingido.toStringAsFixed(1)}%"),
                             Text(
                                 "Abdomem: ${controller.meta_abdomem_temporal.toStringAsFixed(1)} -> ${controller.meta_abdomem_temporal_atingido.toStringAsFixed(1)}%"),
+                            Text(
+                                "Bicipes: ${controller.meta_bicipes_temporal.toStringAsFixed(1)} -> ${controller.meta_bicipes_temporal_atingido.toStringAsFixed(1)}%"),
                           ],
                         ),
                       ),
