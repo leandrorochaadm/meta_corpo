@@ -8,4 +8,5 @@ Tambem fiz calculo pra apresentar  qual medida ideal que devo alçancar diariame
 - Foi desvolvido em Flutter com Mobx (Flutter 1.23.0-4.0.pre)
 - Compilado pra Linux e Android
 
-![](print.png)
+<!-- ![](print.png) -->
+<img src="print.png" alt="drawing"  width="auto" height="480"/> 
